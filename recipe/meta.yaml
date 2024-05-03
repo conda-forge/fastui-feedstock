@@ -1,5 +1,5 @@
 {% set name = "fastui" %}
-{% set version = "0.5.2" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fastui-{{ version }}.tar.gz
-  sha256: 854a7a7fce4c08efd9caff1a331d222007b3708b133d996528e3f40996c96091
+  sha256: 9ad5749aa0e0b0aa59a4f8109a632532f56dce2b46c0239df661c3a6cbec9084
 
 build:
   noarch: python
