@@ -36,7 +36,7 @@ tests:
       imports:
         - fastui
       pip_check: true
-      python_version: ${{ python_min  }}.*
+      python_version: ${{ python_min }}.*
 
 about:
   summary: Build web application user interfaces defined by declarative Python code
