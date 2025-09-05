@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: fastui
+  version: 0.8.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/fastui-${{ version }}.tar.gz
+  sha256: 3d8aa940b454043ff05d5747698e6b88ae2673e36752091d4c1f0816f685fa46
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - pydantic >=2.8.0
+    # Required by pydantic[email]
+    - email-validator >=2.0.0
+    # Listed as optional but import test needs it anyway
+    - fastapi >=0.104
+    - python-multipart >=0.0.6
+
+tests:
+  - python:
+      imports:
+        - fastui
+      pip_check: true
+      python_version: ${{ python_min }}.*
+
+about:
+  summary: Build web application user interfaces defined by declarative Python code
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/samuelcolvin/FastUI
+
+extra:
+  recipe-maintainers:
+    - thewchan
